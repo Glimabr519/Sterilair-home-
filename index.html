@@ -43,12 +43,12 @@
   .utility-row a{display:flex; align-items:center; gap:5px; transition:color .15s;}
   .utility-row a:hover{color:var(--blue-700);}
 
-  .main-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:76px; gap:24px;}
-  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; display:flex; align-items:center; gap:9px; color:var(--blue-900); flex-shrink:0;}
+  .main-nav .wrap{display:grid; grid-template-columns:auto 1fr auto; align-items:center; height:76px; gap:20px;}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; display:flex; align-items:center; gap:9px; color:var(--blue-900); flex-shrink:0; justify-self:start;}
   .logo img{width:32px; height:32px; object-fit:contain;}
 
   /* optimized nav: grouped into primary (products) + secondary (info), pill highlight for active-ish, icons */
-  .navlinks{display:flex; align-items:center; gap:2px; flex:1; justify-content:center; flex-wrap:nowrap;}
+  .navlinks{display:flex; align-items:center; gap:2px; justify-content:flex-start; flex-wrap:nowrap;}
   .nav-group{display:flex; align-items:center; gap:2px;}
   .navlinks a{
     display:flex; align-items:center; gap:5px; font-size:12.8px; font-weight:500; color:var(--blue-900);
@@ -59,7 +59,7 @@
   .navlinks a.primary:hover{background:var(--blue-800); color:#fff;}
   .nav-divider{width:1px; height:20px; background:var(--line); margin:0 8px; flex-shrink:0;}
 
-  .nav-right{display:flex; align-items:center; gap:12px;}
+  .nav-right{display:flex; align-items:center; justify-self:end;}
   .whatsapp-float{
     position:fixed; bottom:24px; right:24px; z-index:70;
     width:56px; height:56px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center;
@@ -281,8 +281,8 @@
   }
 
   @media(max-width:1100px){
-    .main-nav .wrap{height:auto; padding-top:14px; padding-bottom:14px; flex-wrap:wrap; justify-content:center; gap:14px;}
-    .navlinks{width:100%; justify-content:center; order:3; flex-wrap:wrap;}
+    .main-nav .wrap{height:auto; padding-top:14px; padding-bottom:14px; gap:14px; grid-template-columns:auto 1fr auto;}
+    .navlinks{width:100%; justify-content:flex-start; order:3; flex-wrap:wrap; grid-column:1 / -1;}
     .nav-right{margin-left:auto;}
   }
 
@@ -290,13 +290,13 @@
     .wrap{padding:0 16px;}
     .promo-bar{font-size:12px; padding:8px 10px;}
     .utility-row .wrap{justify-content:center; flex-wrap:wrap; gap:10px; height:auto; padding:8px 16px;}
-    .main-nav .wrap{gap:12px; padding:12px 0;}
+    .main-nav .wrap{gap:12px; padding:12px 0; grid-template-columns:auto auto;}
     .logo{font-size:18px;}
     .logo img{width:28px; height:28px;}
-    .navlinks{justify-content:flex-start; overflow-x:auto; padding-bottom:2px;}
-    .nav-group{flex-wrap:wrap; justify-content:center;}
+    .navlinks{justify-content:flex-start; overflow-x:auto; padding-bottom:2px; grid-column:1 / -1;}
+    .nav-group{flex-wrap:wrap; justify-content:flex-start;}
     .nav-divider{display:none;}
-    .nav-right{width:100%; justify-content:center;}
+    .nav-right{justify-self:end;}
     .nav-buy{padding:10px 16px; font-size:12px;}
     .hero{padding:40px 0 28px;}
     .hero .wrap{gap:28px;}
@@ -359,7 +359,6 @@
       </div>
       <div class="nav-right">
         <div class="cart-btn">🛒<span class="badge">1</span></div>
-        <button class="nav-buy">Comprar agora</button>
       </div>
     </div>
   </div>
